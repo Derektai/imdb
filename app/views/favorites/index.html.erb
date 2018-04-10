@@ -18,7 +18,7 @@
       <% @favorites.each do |favorite| %>
       <tr>
         <td><%= favorite.rank %></td>
-        <td><%= favorite.movie_id %></td>
+        <td><%= favorite.movie.title %></td>
         <td><%= favorite.users_id %></td>
         <td>
           <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">Show</a>
