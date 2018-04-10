@@ -1,4 +1,14 @@
 class FavoritesController < ApplicationController
+  before_action :current_user_must_be_favorite_users, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_favorite_users
+    favorite = Favorite.find(params[:id])
+
+    unless current_user == favorite.users
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @favorites = Favorite.all
 
