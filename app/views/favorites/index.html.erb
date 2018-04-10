@@ -19,7 +19,7 @@
       <tr>
         <td><%= favorite.rank %></td>
         <td><%= favorite.movie.title %></td>
-        <td><%= favorite.users_id %></td>
+        <td><%= favorite.users.email %></td>
         <td>
           <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">Show</a>
           <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">Edit</a>
