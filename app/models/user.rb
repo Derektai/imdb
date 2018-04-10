@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :favorites,
+             :foreign_key => "users_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
