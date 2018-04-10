@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @favorite.errors.any? %>
+  <% @favorite.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Favorite #<%= @favorite.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_favorite/<%= @favorite.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for rank -->
+      <div class="form-group">
+        <label for="rank" class="control-label">
+          Rank
+        </label>
+
+        <input type="text" id="rank" name="rank" placeholder="Rank" class="form-control" value="<%= @favorite.rank %>">
+      </div>
+
+      <!-- Label and input for movie_id -->
+      <div class="form-group">
+        <label for="movie_id" class="control-label">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= @favorite.movie_id %>">
+      </div>
+
+      <!-- Label and input for users_id -->
+      <div class="form-group">
+        <label for="users_id" class="control-label">
+          Users
+        </label>
+
+        <input type="text" id="users_id" name="users_id" placeholder="Users" class="form-control" value="<%= @favorite.users_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Favorite
+      </button>
+      or
+      <a href="/favorites/<%= @favorite.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
