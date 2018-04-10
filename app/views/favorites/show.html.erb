@@ -9,10 +9,22 @@
       <dd><%= @favorite.rank %></dd>
 
       <dt>Movie</dt>
-      <dd><%= @favorite.movie_id %></dd>
+      <dd>
+        <% if @favorite.movie.present? %>
+          <a href="/movies/<%= @favorite.movie_id %>">
+            <%= @favorite.movie.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Users</dt>
-      <dd><%= @favorite.users_id %></dd>
+      <dd>
+        <% if @favorite.users.present? %>
+          <a href="/users/<%= @favorite.users_id %>">
+            <%= @favorite.users.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

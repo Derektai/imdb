@@ -18,8 +18,20 @@
       <% @favorites.each do |favorite| %>
       <tr>
         <td><%= favorite.rank %></td>
-        <td><%= favorite.movie.title %></td>
-        <td><%= favorite.users.email %></td>
+        <td>
+          <% if favorite.movie.present? %>
+            <a href="/movies/<%= favorite.movie.id %>">
+              <%= favorite.movie.title %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if favorite.users.present? %>
+            <a href="/users/<%= favorite.users.id %>">
+              <%= favorite.users.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">Show</a>
           
