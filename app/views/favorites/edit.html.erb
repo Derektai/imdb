@@ -36,14 +36,8 @@
         <%= select_tag(:movie_id, options_from_collection_for_select(Movie.all, :id, :title, @favorite.movie_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for users_id -->
-      <div class="form-group">
-        <label for="users_id" class="control-label">
-          Users
-        </label>
-
-        <%= select_tag(:users_id, options_from_collection_for_select(User.all, :id, :email, @favorite.users_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Favorite

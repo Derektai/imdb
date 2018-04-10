@@ -37,13 +37,7 @@
       </div>
 
       <!-- Label and input for users_id -->
-      <div class="form-group">
-        <label for="users_id" class="control-label">
-          Users
-        </label>
-
-        <%= select_tag(:users_id, options_from_collection_for_select(User.all, :id, :email, @favorite.users_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="users_id" value="<%= current_user.id %>">
 
       <button class="btn btn-success">
         Create Favorite
