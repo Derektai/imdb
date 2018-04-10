@@ -11,6 +11,10 @@ class Movie < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :actors,
+             :through => :castings,
+             :source => :actor
+
   # Validations
 
   validates :title, :presence => true
